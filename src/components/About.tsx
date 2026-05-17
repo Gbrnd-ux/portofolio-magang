@@ -58,11 +58,13 @@ const About = () => {
               {/* Animated background */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl blur-2xl opacity-30 animate-pulse"></div>
 
-              {/* Profile circle */}
+              {/* Profile photo */}
               <div className="relative w-56 h-56 sm:w-64 sm:h-64 rounded-3xl bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 p-1 shadow-2xl mx-auto">
-                <div className="w-full h-full rounded-3xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center text-8xl hover:scale-105 transition-transform duration-300">
-                  👨‍💻
-                </div>
+                <img
+                  src="/profile.jpg"
+                  alt="Gibrand Putra Pradana"
+                  className="w-full h-full rounded-3xl object-cover hover:scale-105 transition-transform duration-300"
+                />
               </div>
             </div>
           </motion.div>
@@ -94,7 +96,7 @@ const About = () => {
             {/* Stats */}
             <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-gray-200 dark:border-gray-700">
               <div className="text-center">
-                <div className="text-3xl font-bold gradient-text">3</div>
+                <div className="text-3xl font-bold gradient-text">4</div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">Projects Done</div>
               </div>
               <div className="text-center">

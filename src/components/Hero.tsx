@@ -68,7 +68,7 @@ const Hero = () => {
           variants={itemVariants}
         >
           <div className="glass-effect rounded-lg p-4">
-            <div className="text-2xl font-bold gradient-text">3</div>
+            <div className="text-2xl font-bold gradient-text">4</div>
             <div className="text-xs text-gray-600 dark:text-gray-400">Projects</div>
           </div>
           <div className="glass-effect rounded-lg p-4">
