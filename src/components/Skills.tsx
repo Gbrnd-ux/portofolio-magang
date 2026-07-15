@@ -77,15 +77,15 @@ const Skills = () => {
         </div>
 
         {/* Skills Layout */}
-        <div className="space-y-10">
+        <div className="space-y-12">
           {skillCategories.map((cat) => (
             <div key={cat.title}>
-              <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-5">
+              <h3 className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-6">
                 {cat.title}
               </h3>
 
               <motion.div
-                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3"
+                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -96,11 +96,13 @@ const Skills = () => {
                     key={skill.name}
                     variants={itemVariants}
                   >
-                    <div className="flex items-center gap-3 px-4 py-3 bg-white/60 dark:bg-white/[0.03] rounded-xl border border-gray-200/60 dark:border-gray-800/60 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-200 cursor-default select-none group">
-                      <span className="text-xl shrink-0 group-hover:scale-110 transition-transform duration-200">
+                    <div className="flex items-center gap-3 px-4 py-3.5 bg-white dark:bg-[#111827] rounded-xl border border-gray-200/80 dark:border-gray-800 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 cursor-default select-none group">
+                      <span className="text-2xl shrink-0 group-hover:scale-110 transition-transform duration-300">
                         {skill.icon}
                       </span>
-                      <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{skill.name}</span>
+                      <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
+                        {skill.name}
+                      </span>
                     </div>
                   </motion.div>
                 ))}

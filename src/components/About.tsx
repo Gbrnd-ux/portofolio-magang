@@ -76,20 +76,25 @@ const About = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <motion.div variants={itemVariants} className="space-y-5">
-              <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-                Saya mahasiswa <span className="font-semibold text-gray-900 dark:text-white">Teknik Informatika</span> semester 6
-                dengan passion mendalam di pengembangan web frontend.
-              </p>
+            <motion.div variants={itemVariants} className="space-y-6 relative">
+              {/* Decorative accent line */}
+              <div className="absolute left-0 top-2 bottom-2 w-1 bg-gradient-to-b from-blue-500/50 to-transparent rounded-full hidden sm:block"></div>
+              
+              <div className="sm:pl-6 space-y-6">
+                <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                  Saya mahasiswa <span className="font-semibold text-gray-900 dark:text-white">Teknik Informatika</span> semester 6
+                  dengan passion mendalam di pengembangan web frontend.
+                </p>
 
-              <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-                Aktif mengerjakan proyek pribadi dan kolaborasi tim kampus. Saya senang belajar teknologi baru dan saat ini mendalami
-                <span className="font-semibold text-gray-900 dark:text-white"> TypeScript dan Next.js</span>.
-              </p>
+                <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                  Aktif mengerjakan proyek pribadi dan kolaborasi tim kampus. Saya senang belajar teknologi baru dan saat ini mendalami
+                  <span className="font-semibold text-gray-900 dark:text-white"> TypeScript dan Next.js</span>.
+                </p>
 
-              <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-                Target saya adalah magang sebagai <span className="font-semibold text-gray-900 dark:text-white">Frontend Developer</span> untuk mengasah skill dan memberikan dampak nyata.
-              </p>
+                <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                  Target saya adalah magang sebagai <span className="font-semibold text-gray-900 dark:text-white">Frontend Developer</span> untuk mengasah skill dan memberikan dampak nyata.
+                </p>
+              </div>
             </motion.div>
 
             {/* Interest tags - simpler style */}

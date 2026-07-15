@@ -54,7 +54,7 @@ const Projects = () => {
               <motion.div
                 key={project.id}
                 variants={cardVariants}
-                className="group rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 bg-white/50 dark:bg-white/[0.02] hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300 flex flex-col h-full hover:shadow-lg"
+                className="group relative rounded-2xl overflow-hidden bg-white dark:bg-[#111827] border border-gray-200/80 dark:border-gray-800 transition-all duration-300 flex flex-col h-full hover:shadow-xl hover:shadow-blue-500/5 dark:hover:shadow-blue-900/20 hover:-translate-y-1"
               >
                 <a
                   href={cardLink}
@@ -74,11 +74,11 @@ const Projects = () => {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                   ) : (
                     <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
-                      <span className="text-4xl text-gray-400 dark:text-gray-600 font-bold">
+                      <span className="text-5xl text-gray-300 dark:text-gray-700 font-bold">
                         {project.title.charAt(0)}
                       </span>
                     </div>

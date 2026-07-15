@@ -28,14 +28,14 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative w-full min-h-[calc(100vh-4rem)] flex items-center justify-center py-20 md:py-28 overflow-hidden">
+      {/* Premium Background Pattern */}
+      <div className="absolute inset-0 bg-dot-pattern -z-20 opacity-50 dark:opacity-30"></div>
+      
+      {/* Vercel-style Spotlight Gradients (very subtle, large, static) */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-500/10 dark:bg-blue-500/15 filter blur-[100px] -z-10 rounded-full opacity-50 pointer-events-none"></div>
+      
       {/* Particle Background */}
       <ParticleBackground />
-
-      {/* Background gradient orbs - subtle */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/8 rounded-full filter blur-3xl animate-float-slow"></div>
-        <div className="absolute top-40 right-10 w-80 h-80 bg-indigo-500/6 rounded-full filter blur-3xl animate-float-delayed"></div>
-      </div>
 
       <motion.div
         className="max-w-3xl mx-auto px-4 sm:px-6 text-center z-10"
@@ -59,12 +59,15 @@ const Hero = () => {
           className="text-lg sm:text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-400 mb-10 h-8 flex justify-center items-center"
           variants={itemVariants}
         >
-          <TypewriterText
-            words={["Frontend Developer", "UI/UX Enthusiast", "Creative Tech Learner"]}
-            typingSpeed={80}
-            deletingSpeed={40}
-            delayBetweenWords={1800}
-          />
+          <span className="mr-2">I build things for the web as a</span>
+          <span className="font-semibold text-gray-900 dark:text-gray-100">
+            <TypewriterText
+              words={["Frontend Developer.", "UI/UX Enthusiast.", "Creative Coder."]}
+              typingSpeed={80}
+              deletingSpeed={40}
+              delayBetweenWords={2500}
+            />
+          </span>
         </motion.div>
 
         {/* CTA Buttons */}
@@ -74,14 +77,14 @@ const Hero = () => {
         >
           <Link
             href="#projects"
-            className="group px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-semibold rounded-xl transition-all duration-300 hover:opacity-90 hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+            className="group px-8 py-3.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium rounded-full transition-all duration-300 hover:opacity-90 hover:scale-105 shadow-sm hover:shadow-md flex items-center justify-center gap-2 cursor-pointer"
           >
             <span>Lihat Karya Saya</span>
             <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
           </Link>
           <Link
             href="#contact"
-            className="px-8 py-4 text-gray-700 dark:text-gray-300 font-semibold rounded-xl border border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 hover:shadow-md flex items-center justify-center cursor-pointer"
+            className="px-8 py-3.5 text-gray-700 dark:text-gray-300 font-medium rounded-full border border-gray-300 dark:border-gray-700 hover:border-gray-900 dark:hover:border-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 transition-all duration-300 flex items-center justify-center cursor-pointer"
           >
             Hubungi Saya
           </Link>

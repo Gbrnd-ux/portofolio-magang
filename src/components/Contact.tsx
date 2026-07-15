@@ -129,8 +129,9 @@ const Contact = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
+          className="bg-white dark:bg-[#111827] border border-gray-200/80 dark:border-gray-800 rounded-2xl p-6 sm:p-8 shadow-sm"
         >
-          <motion.form onSubmit={handleSubmit} className="space-y-4" variants={itemVariants}>
+          <motion.form onSubmit={handleSubmit} className="space-y-5" variants={itemVariants}>
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-1.5 text-gray-700 dark:text-gray-300">
@@ -141,7 +142,7 @@ const Contact = () => {
                   name="name"
                   id="name"
                   required
-                  className="w-full px-4 py-3 bg-white/60 dark:bg-white/[0.03] border border-gray-200/60 dark:border-gray-800/60 rounded-xl focus:ring-2 focus:ring-blue-500/20 outline-none transition-all focus:border-blue-500 dark:focus:border-blue-400 text-sm"
+                  className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-xl focus:ring-2 focus:ring-blue-500/20 outline-none transition-all focus:border-blue-500 dark:focus:border-blue-500 text-sm"
                   placeholder="Nama Anda"
                 />
               </div>
@@ -154,7 +155,7 @@ const Contact = () => {
                   name="email"
                   id="email"
                   required
-                  className="w-full px-4 py-3 bg-white/60 dark:bg-white/[0.03] border border-gray-200/60 dark:border-gray-800/60 rounded-xl focus:ring-2 focus:ring-blue-500/20 outline-none transition-all focus:border-blue-500 dark:focus:border-blue-400 text-sm"
+                  className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-xl focus:ring-2 focus:ring-blue-500/20 outline-none transition-all focus:border-blue-500 dark:focus:border-blue-500 text-sm"
                   placeholder="youremail@gmail.com"
                 />
               </div>
@@ -168,7 +169,7 @@ const Contact = () => {
                 name="subject"
                 id="subject"
                 required
-                className="w-full px-4 py-3 bg-white/60 dark:bg-white/[0.03] border border-gray-200/60 dark:border-gray-800/60 rounded-xl focus:ring-2 focus:ring-blue-500/20 outline-none transition-all focus:border-blue-500 dark:focus:border-blue-400 text-sm"
+                className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-xl focus:ring-2 focus:ring-blue-500/20 outline-none transition-all focus:border-blue-500 dark:focus:border-blue-500 text-sm"
                 placeholder="Apa yang ingin dibicarakan?"
               />
             </div>
@@ -181,7 +182,7 @@ const Contact = () => {
                 id="message"
                 rows={5}
                 required
-                className="w-full px-4 py-3 bg-white/60 dark:bg-white/[0.03] border border-gray-200/60 dark:border-gray-800/60 rounded-xl focus:ring-2 focus:ring-blue-500/20 outline-none transition-all focus:border-blue-500 dark:focus:border-blue-400 resize-none text-sm"
+                className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-xl focus:ring-2 focus:ring-blue-500/20 outline-none transition-all focus:border-blue-500 dark:focus:border-blue-500 resize-none text-sm"
                 placeholder="Tulis pesan Anda di sini..."
               />
             </div>
