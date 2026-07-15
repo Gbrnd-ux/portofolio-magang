@@ -1,10 +1,44 @@
 "use client";
 
 import { motion } from "framer-motion";
+import {
+  SiHtml5,
+  SiCss,
+  SiJavascript,
+  SiTypescript,
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiGit,
+  SiGithub,
+  SiFigma,
+  SiPrisma
+} from "react-icons/si";
+import { TbApi } from "react-icons/tb";
 
-const skills = [
-  "HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js",
-  "Tailwind CSS", "Git", "GitHub", "Figma", "Prisma", "REST API",
+const skillCategories = [
+  {
+    title: "Frontend",
+    skills: [
+      { name: "HTML", icon: <SiHtml5 className="text-[#E34F26]" /> },
+      { name: "CSS", icon: <SiCss className="text-[#1572B6]" /> },
+      { name: "JavaScript", icon: <SiJavascript className="text-[#F7DF1E]" /> },
+      { name: "TypeScript", icon: <SiTypescript className="text-[#3178C6]" /> },
+      { name: "React", icon: <SiReact className="text-[#61DAFB]" /> },
+      { name: "Next.js", icon: <SiNextdotjs className="text-black dark:text-white" /> },
+      { name: "Tailwind CSS", icon: <SiTailwindcss className="text-[#06B6D4]" /> },
+    ],
+  },
+  {
+    title: "Tools & Backend",
+    skills: [
+      { name: "Git", icon: <SiGit className="text-[#F05032]" /> },
+      { name: "GitHub", icon: <SiGithub className="text-black dark:text-white" /> },
+      { name: "Figma", icon: <SiFigma className="text-[#F24E1E]" /> },
+      { name: "Prisma", icon: <SiPrisma className="text-[#2D3748] dark:text-gray-300" /> },
+      { name: "REST API", icon: <TbApi className="text-[#0EA5E9]" /> },
+    ],
+  },
 ];
 
 const Skills = () => {
@@ -13,75 +47,74 @@ const Skills = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
+        staggerChildren: 0.06,
+        delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, y: 10 },
     visible: {
       opacity: 1,
-      scale: 1,
-      transition: { duration: 0.5 },
+      y: 0,
+      transition: { duration: 0.4, ease: "easeOut" as const },
     },
   };
 
   return (
-    <section className="py-20 px-4 relative">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/3 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse delay-2000"></div>
-      </div>
-
-      <div className="max-w-5xl mx-auto text-center">
+    <section id="skills" className="py-24 md:py-32 px-4 relative">
+      <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="mb-14">
-          <span className="inline-block px-4 py-2 glass-effect rounded-full text-sm font-semibold text-blue-600 dark:text-blue-300 mb-4">
-            Expertise
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Skill & <span className="gradient-text">Tools</span>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
+            Skill & <span className="gradient-text font-black">Tools</span>
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Teknologi dan tools yang saya kuasai untuk membangun aplikasi web berkualitas tinggi
+          <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full mb-5" />
+          <p className="text-gray-600 dark:text-gray-400 max-w-lg mx-auto">
+            Teknologi yang saya gunakan sehari-hari untuk membangun aplikasi web
           </p>
         </div>
 
-        {/* Skills Grid */}
-        <motion.div
-          className="flex flex-wrap justify-center gap-3"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          {skills.map((skill) => (
-            <motion.div
-              key={skill}
-              variants={itemVariants}
-              className="group"
-            >
-              <div className="px-6 py-3 glass-effect rounded-full font-semibold text-gray-900 dark:text-white hover:bg-gradient-to-r hover:from-blue-500/20 hover:to-indigo-500/20 transition-all duration-300 transform hover:scale-110 hover:shadow-lg border border-white/20 dark:border-gray-700/20 hover:border-blue-400/50 dark:hover:border-blue-600/50 cursor-default select-none">
-                {skill}
-              </div>
-            </motion.div>
+        {/* Skills Layout */}
+        <div className="space-y-10">
+          {skillCategories.map((cat) => (
+            <div key={cat.title}>
+              <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-5">
+                {cat.title}
+              </h3>
+
+              <motion.div
+                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+              >
+                {cat.skills.map((skill) => (
+                  <motion.div
+                    key={skill.name}
+                    variants={itemVariants}
+                  >
+                    <div className="flex items-center gap-3 px-4 py-3 bg-white/60 dark:bg-white/[0.03] rounded-xl border border-gray-200/60 dark:border-gray-800/60 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-200 cursor-default select-none group">
+                      <span className="text-xl shrink-0 group-hover:scale-110 transition-transform duration-200">
+                        {skill.icon}
+                      </span>
+                      <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{skill.name}</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Additional info */}
-        <motion.div
-          className="mt-14 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-        >
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-4">
-            Terus berkembang dengan mempelajari teknologi terbaru dan best practices dalam web development.
+        <div className="mt-12 text-center">
+          <p className="text-gray-400 dark:text-gray-500 text-sm">
+            Selalu bersemangat mempelajari teknologi baru dan mengeksplorasi ekosistem web modern.
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

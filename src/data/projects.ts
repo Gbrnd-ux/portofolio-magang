@@ -4,7 +4,7 @@ export interface Project {
   description: string;
   tech: string[];
   liveUrl?: string;
-  githubUrl: string;
+  githubUrl?: string;
   image?: string;
 }
 
@@ -41,4 +41,16 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Gbrnd-ux/my-college-tasks",
     image: "https://opengraph.githubassets.com/1/Gbrnd-ux/my-college-tasks",
   },
+  {
+    id: "5",
+    title: "Axer AI",
+    description: "Platform antarmuka percakapan AI interaktif (Chat Interface) dengan desain modern yang intuitif dan responsif. (Private Project)",
+    tech: ["React", "JavaScript", "CSS"],
+  },
+  {
+    id: "6",
+    title: "WispBot WhatsApp",
+    description: "Bot WhatsApp otomatis terintegrasi yang dirancang untuk merespons pesan dengan cepat, efisien, dan cerdas. (Private Project)",
+    tech: ["Node.js", "WhatsApp Web.js"],
+  }
 ];

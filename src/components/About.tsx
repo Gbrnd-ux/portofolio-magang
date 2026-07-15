@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 const About = () => {
   const containerVariants = {
@@ -8,114 +10,130 @@ const About = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
         delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, x: -30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
-      x: 0,
-      transition: { duration: 0.6 },
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" as const },
     },
   };
 
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.6 },
-    },
-  };
+  const interests = ["Web Dev", "UI/UX", "Problem Solving", "React Ecosystem", "TypeScript", "Open Source"];
 
   return (
-    <section id="about" className="py-16 md:py-20 px-4 sm:px-6">
-      <div className="max-w-5xl mx-auto">
+    <section id="about" className="py-24 md:py-32 px-4 sm:px-6 relative">
+      <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-14">
-          <span className="inline-block px-4 py-2 glass-effect rounded-full text-sm font-semibold text-blue-600 dark:text-blue-300 mb-4">
-            About Me
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            Tentang <span className="gradient-text">Saya</span>
+        <div className="text-center mb-20">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
+            Tentang <span className="gradient-text font-black">Saya</span>
           </h2>
+          <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full" />
         </div>
 
-        <div className="grid gap-12 items-center md:grid-cols-2">
-          {/* Image */}
+        <div className="grid gap-12 lg:gap-16 items-start lg:grid-cols-5">
+          {/* Image - takes 2 columns, much bigger */}
           <motion.div
-            className="flex justify-center order-2 md:order-1"
-            variants={imageVariants}
-            initial="hidden"
-            whileInView="visible"
+            className="lg:col-span-2 flex justify-center lg:sticky lg:top-28"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="relative">
-              {/* Animated background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl blur-2xl opacity-30 animate-pulse"></div>
-
-              {/* Profile photo */}
-              <div className="relative w-56 h-56 sm:w-64 sm:h-64 rounded-3xl bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 p-1 shadow-2xl mx-auto">
-                <img
+            <div className="relative w-full max-w-sm">
+              {/* Photo */}
+              <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden shadow-2xl">
+                <Image
                   src="/profile.jpg"
                   alt="Gibrand Putra Pradana"
-                  className="w-full h-full rounded-3xl object-cover hover:scale-105 transition-transform duration-300"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 90vw, 350px"
+                  priority
                 />
+                {/* Subtle overlay at bottom for text contrast if needed */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
               </div>
+
+              {/* Floating accent - subtle, not overdone */}
+              <div className="absolute -bottom-3 -right-3 w-24 h-24 bg-blue-500/10 rounded-2xl -z-10" />
+              <div className="absolute -top-3 -left-3 w-16 h-16 bg-indigo-500/8 rounded-xl -z-10" />
             </div>
           </motion.div>
 
-          {/* Content */}
+          {/* Content - takes 3 columns */}
           <motion.div
-            className="space-y-6 order-1 md:order-2"
+            className="lg:col-span-3 space-y-8"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <motion.div variants={itemVariants} className="space-y-4">
-              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                Saya mahasiswa <span className="font-bold text-blue-600 dark:text-blue-400">Teknik Informatika</span> semester 6
+            <motion.div variants={itemVariants} className="space-y-5">
+              <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                Saya mahasiswa <span className="font-semibold text-gray-900 dark:text-white">Teknik Informatika</span> semester 6
                 dengan passion mendalam di pengembangan web frontend.
               </p>
 
-              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
                 Aktif mengerjakan proyek pribadi dan kolaborasi tim kampus. Saya senang belajar teknologi baru dan saat ini mendalami
-                <span className="font-semibold text-blue-600 dark:text-blue-400"> TypeScript dan Next.js</span>.
+                <span className="font-semibold text-gray-900 dark:text-white"> TypeScript dan Next.js</span>.
               </p>
 
-              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                Target saya adalah magang sebagai <span className="font-semibold text-indigo-600 dark:text-indigo-400">Frontend Developer</span> untuk mengasah skill dan memberikan dampak nyata.
+              <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                Target saya adalah magang sebagai <span className="font-semibold text-gray-900 dark:text-white">Frontend Developer</span> untuk mengasah skill dan memberikan dampak nyata.
               </p>
             </motion.div>
 
-            {/* Stats */}
-            <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-gray-200 dark:border-gray-700">
-              <div className="text-center">
-                <div className="text-3xl font-bold gradient-text">4</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Projects Done</div>
+            {/* Interest tags - simpler style */}
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-2">
+              {interests.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1.5 text-xs font-medium bg-gray-100 dark:bg-white/5 rounded-lg text-gray-600 dark:text-gray-400 border border-gray-200/60 dark:border-white/8"
+                >
+                  {tag}
+                </span>
+              ))}
+            </motion.div>
+
+            {/* Stats - cleaner layout */}
+            <motion.div variants={itemVariants} className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200/60 dark:border-gray-800/60">
+              <div>
+                <div className="text-3xl sm:text-4xl font-black text-gray-900 dark:text-white">
+                  <AnimatedCounter target={4} />
+                </div>
+                <div className="text-sm text-gray-500 dark:text-gray-400 mt-1">Projects</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold gradient-text">50</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Code Hours</div>
+              <div>
+                <div className="text-3xl sm:text-4xl font-black text-gray-900 dark:text-white">
+                  <AnimatedCounter target={50} suffix="+" />
+                </div>
+                <div className="text-sm text-gray-500 dark:text-gray-400 mt-1">Code Hours</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold gradient-text">12</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Skills</div>
+              <div>
+                <div className="text-3xl sm:text-4xl font-black text-gray-900 dark:text-white">
+                  <AnimatedCounter target={12} />
+                </div>
+                <div className="text-sm text-gray-500 dark:text-gray-400 mt-1">Skills</div>
               </div>
             </motion.div>
 
             {/* CTA */}
-            <motion.div variants={itemVariants} className="pt-4">
+            <motion.div variants={itemVariants}>
               <a
                 href="#contact"
-                className="inline-block px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-semibold rounded-xl hover:opacity-90 transition-all duration-300 cursor-pointer"
               >
-                Mari Berkolaborasi 🚀
+                Mari Berkolaborasi
+                <span className="text-lg">→</span>
               </a>
             </motion.div>
           </motion.div>
