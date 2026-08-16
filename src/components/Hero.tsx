@@ -1,5 +1,7 @@
 "use client";
 
+import TiltCard from "./TiltCard";
+
 export default function Hero() {
   return (
     <section id="home" className="hero">
@@ -14,7 +16,7 @@ export default function Hero() {
             <a href="#contact" className="btn btn-outline">Hubungi Saya</a>
           </div>
         </div>
-        <div className="id-card reveal is-visible">
+        <TiltCard className="id-card reveal is-visible">
           <div className="id-photo">
             <img 
               src="/profile.jpg" 
@@ -31,7 +33,7 @@ export default function Hero() {
           <div className="id-row"><span className="k">Semester</span><span className="v">6 — GPA 3.5</span></div>
           <div className="id-row"><span className="k">Kampus</span><span className="v">Univ. Duta Bangsa</span></div>
           <div className="id-row"><span className="k">Lokasi</span><span className="v">Surakarta, ID</span></div>
-        </div>
+        </TiltCard>
       </div>
     </section>
   );

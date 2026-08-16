@@ -1,3 +1,5 @@
+import TiltCard from "./TiltCard";
+
 export default function Projects() {
   return (
     <>
@@ -6,7 +8,7 @@ export default function Projects() {
         <div className="wrap">
           <div className="project-list">
 
-            <div className="project-entry reveal">
+            <TiltCard className="project-entry reveal">
               <span className="project-num mono">01</span>
               <div>
                 <div className="project-title-row">
@@ -19,9 +21,9 @@ export default function Projects() {
                 </div>
               </div>
               <a href="https://github.com/Gbrnd-ux/GFLIX" target="_blank" rel="noopener noreferrer" className="project-link">Lihat Berkas →</a>
-            </div>
+            </TiltCard>
 
-            <div className="project-entry reveal">
+            <TiltCard className="project-entry reveal">
               <span className="project-num mono">02</span>
               <div>
                 <div className="project-title-row">
@@ -34,9 +36,9 @@ export default function Projects() {
                 </div>
               </div>
               <a href="https://github.com/Gbrnd-ux/TokoKu" target="_blank" rel="noopener noreferrer" className="project-link">Lihat Berkas →</a>
-            </div>
+            </TiltCard>
 
-            <div className="project-entry reveal">
+            <TiltCard className="project-entry reveal">
               <span className="project-num mono">03</span>
               <div>
                 <div className="project-title-row">
@@ -49,9 +51,9 @@ export default function Projects() {
                 </div>
               </div>
               <a href="https://github.com/Gbrnd-ux/TabungYuk" target="_blank" rel="noopener noreferrer" className="project-link">Lihat Berkas →</a>
-            </div>
+            </TiltCard>
 
-            <div className="project-entry reveal">
+            <TiltCard className="project-entry reveal">
               <span className="project-num mono">04</span>
               <div>
                 <div className="project-title-row">
@@ -64,9 +66,9 @@ export default function Projects() {
                 </div>
               </div>
               <a href="https://github.com/Gbrnd-ux/my-college-tasks" target="_blank" rel="noopener noreferrer" className="project-link">Lihat Berkas →</a>
-            </div>
+            </TiltCard>
 
-            <div className="project-entry reveal">
+            <TiltCard className="project-entry reveal">
               <span className="project-num mono">05</span>
               <div>
                 <div className="project-title-row">
@@ -79,9 +81,9 @@ export default function Projects() {
                 </div>
               </div>
               <span className="project-link disabled">Berkas Privat</span>
-            </div>
+            </TiltCard>
 
-            <div className="project-entry reveal">
+            <TiltCard className="project-entry reveal">
               <span className="project-num mono">06</span>
               <div>
                 <div className="project-title-row">
@@ -94,7 +96,7 @@ export default function Projects() {
                 </div>
               </div>
               <span className="project-link disabled">Berkas Privat</span>
-            </div>
+            </TiltCard>
 
           </div>
         </div>
