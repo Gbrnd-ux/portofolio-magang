@@ -58,13 +58,11 @@ export default function TiltCard({ children, className = "" }: { children: React
     >
       {/* Glare Layer */}
       <div 
-        className="pointer-events-none absolute inset-0 z-50 rounded-inherit"
-        style={glareStyle}
+        className="pointer-events-none absolute inset-0 z-50"
+        style={{ ...glareStyle, borderRadius: "inherit" }}
       />
       {/* Content */}
-      <div className="w-full h-full" style={{ transformStyle: "preserve-3d" }}>
-        {children}
-      </div>
+      {children}
     </div>
   );
 }
