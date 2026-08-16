@@ -1,143 +1,104 @@
-"use client";
-
-import { projects } from "@/data/projects";
-import { FiExternalLink, FiGithub } from "react-icons/fi";
-import { motion } from "framer-motion";
-
-const Projects = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: "easeOut" as const },
-    },
-  };
-
+export default function Projects() {
   return (
-    <section id="projects" className="py-24 md:py-32 px-4 sm:px-6 relative">
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
-            Proyek <span className="gradient-text font-black">Terbaru</span>
-          </h2>
-          <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full mb-5" />
-          <p className="text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
-            Koleksi proyek yang telah saya buat dengan teknologi modern
-          </p>
-        </div>
+    <>
+      <div className="section-divider"><span className="num mono">03</span><span className="rule"></span><span className="label">Proyek</span></div>
+      <section id="projects">
+        <div className="wrap">
+          <div className="project-list">
 
-        {/* Projects Grid */}
-        <motion.div
-          className="grid gap-6 md:grid-cols-2"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-        >
-          {projects.map((project) => {
-            const cardLink = project.liveUrl ?? project.githubUrl ?? "#";
-
-            return (
-              <motion.div
-                key={project.id}
-                variants={cardVariants}
-                className="group relative rounded-2xl overflow-hidden bg-white dark:bg-[#111827] border border-gray-200/80 dark:border-gray-800 transition-all duration-300 flex flex-col h-full hover:shadow-xl hover:shadow-blue-500/5 dark:hover:shadow-blue-900/20 hover:-translate-y-1"
-              >
-                <a
-                  href={cardLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block overflow-hidden relative aspect-video bg-gray-100 dark:bg-gray-900"
-                  aria-label={`Open ${project.title}`}
-                >
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center">
-                    <span className="text-white text-sm font-medium flex items-center gap-1.5">
-                      Lihat Project <FiExternalLink size={14} />
-                    </span>
-                  </div>
-
-                  {project.image ? (
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
-                      <span className="text-5xl text-gray-300 dark:text-gray-700 font-bold">
-                        {project.title.charAt(0)}
-                      </span>
-                    </div>
-                  )}
-                </a>
-
-                <div className="p-6 sm:p-7 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm flex-grow mb-5 leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-1.5 mb-5">
-                    {project.tech.map((t) => (
-                      <span
-                        key={t}
-                        className="text-xs bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-400 px-2.5 py-1 rounded-md font-medium"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Links */}
-                  <div className="flex flex-wrap gap-4 pt-4 border-t border-gray-100 dark:border-gray-800/60 mt-auto">
-                    {project.liveUrl && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center gap-1.5 transition-colors"
-                      >
-                        <FiExternalLink size={14} />
-                        Live Demo
-                      </a>
-                    )}
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white flex items-center gap-1.5 transition-colors"
-                      >
-                        <FiGithub size={14} />
-                        Source Code
-                      </a>
-                    )}
-                  </div>
+            <div className="project-entry reveal">
+              <span className="project-num mono">01</span>
+              <div>
+                <div className="project-title-row">
+                  <span className="project-title">GFLIX</span>
+                  <span className="project-status public">Public</span>
                 </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      </div>
-    </section>
-  );
-};
+                <p className="project-desc">Platform streaming film bergaya Netflix dengan autentikasi, watchlist, sistem suka, pencarian real-time, ad blocker bawaan, dan tema gelap glassmorphism.</p>
+                <div className="tag-row">
+                  <span className="tag">React</span><span className="tag">TypeScript</span><span className="tag">Vite</span><span className="tag">React Router</span><span className="tag">CSS</span>
+                </div>
+              </div>
+              <a href="https://github.com/Gbrnd-ux/GFLIX" target="_blank" rel="noopener noreferrer" className="project-link">Lihat Berkas →</a>
+            </div>
 
-export default Projects;
+            <div className="project-entry reveal">
+              <span className="project-num mono">02</span>
+              <div>
+                <div className="project-title-row">
+                  <span className="project-title">TokoKu</span>
+                  <span className="project-status public">Public</span>
+                </div>
+                <p className="project-desc">Platform e-commerce full-stack lengkap dengan autentikasi, keranjang belanja, dan dashboard admin. Frontend React, backend Node.js dan MySQL.</p>
+                <div className="tag-row">
+                  <span className="tag">React</span><span className="tag">Node.js</span><span className="tag">Express</span><span className="tag">MySQL</span><span className="tag">Tailwind</span><span className="tag">JWT</span>
+                </div>
+              </div>
+              <a href="https://github.com/Gbrnd-ux/TokoKu" target="_blank" rel="noopener noreferrer" className="project-link">Lihat Berkas →</a>
+            </div>
+
+            <div className="project-entry reveal">
+              <span className="project-num mono">03</span>
+              <div>
+                <div className="project-title-row">
+                  <span className="project-title">TabungYuk</span>
+                  <span className="project-status public">Public</span>
+                </div>
+                <p className="project-desc">Aplikasi tabungan online untuk mengumpulkan dana bersama menuju tujuan tertentu, dibangun dengan React dan Vite untuk performa ringan.</p>
+                <div className="tag-row">
+                  <span className="tag">React</span><span className="tag">Vite</span><span className="tag">JavaScript</span><span className="tag">CSS</span>
+                </div>
+              </div>
+              <a href="https://github.com/Gbrnd-ux/TabungYuk" target="_blank" rel="noopener noreferrer" className="project-link">Lihat Berkas →</a>
+            </div>
+
+            <div className="project-entry reveal">
+              <span className="project-num mono">04</span>
+              <div>
+                <div className="project-title-row">
+                  <span className="project-title">My College Tasks</span>
+                  <span className="project-status public">Public</span>
+                </div>
+                <p className="project-desc">Aplikasi mobile Flutter untuk manajemen tugas kuliah dengan prioritas, pencarian, pengingat, dan penyimpanan offline lewat SharedPreferences.</p>
+                <div className="tag-row">
+                  <span className="tag">Flutter</span><span className="tag">Dart</span><span className="tag">SQLite</span>
+                </div>
+              </div>
+              <a href="https://github.com/Gbrnd-ux/my-college-tasks" target="_blank" rel="noopener noreferrer" className="project-link">Lihat Berkas →</a>
+            </div>
+
+            <div className="project-entry reveal">
+              <span className="project-num mono">05</span>
+              <div>
+                <div className="project-title-row">
+                  <span className="project-title">Axer AI</span>
+                  <span className="project-status">Private</span>
+                </div>
+                <p className="project-desc">Antarmuka percakapan AI interaktif dengan desain modern, intuitif, dan responsif.</p>
+                <div className="tag-row">
+                  <span className="tag">React</span><span className="tag">JavaScript</span><span className="tag">CSS</span>
+                </div>
+              </div>
+              <span className="project-link disabled">Berkas Privat</span>
+            </div>
+
+            <div className="project-entry reveal">
+              <span className="project-num mono">06</span>
+              <div>
+                <div className="project-title-row">
+                  <span className="project-title">WispBot WhatsApp</span>
+                  <span className="project-status">Private</span>
+                </div>
+                <p className="project-desc">Bot WhatsApp otomatis yang merespons pesan secara cepat, efisien, dan cerdas.</p>
+                <div className="tag-row">
+                  <span className="tag">Node.js</span><span className="tag">whatsapp-web.js</span>
+                </div>
+              </div>
+              <span className="project-link disabled">Berkas Privat</span>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
