@@ -13,7 +13,6 @@ export default function Navbar() {
           <Link href="#home" onClick={() => setIsOpen(false)}>Beranda</Link>
           <Link href="#about" onClick={() => setIsOpen(false)}>Tentang</Link>
           <Link href="#skills" onClick={() => setIsOpen(false)}>Keahlian</Link>
-          <Link href="#projects" onClick={() => setIsOpen(false)}>Proyek</Link>
           <Link href="#contact" onClick={() => setIsOpen(false)}>Kontak</Link>
         </nav>
         <button 

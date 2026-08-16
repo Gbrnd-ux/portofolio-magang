@@ -12,7 +12,6 @@ export default function Hero() {
           <p className="role">Frontend Developer yang siap bekerja dan berkolaborasi</p>
           <p className="desc">Mahasiswa Teknik Informatika semester 6, membangun antarmuka web dengan React dan Next.js. Fokus pada detail kecil yang membuat sebuah produk terasa matang.</p>
           <div className="btn-row">
-            <a href="#projects" className="btn btn-primary">Lihat Proyek</a>
             <a href="#contact" className="btn btn-outline">Hubungi Saya</a>
           </div>
         </div>
